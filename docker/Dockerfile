@@ -11,7 +11,7 @@ FROM  solr:6.6-alpine
 #docker run --net=cora-test  --name solr-test -d  solr -P solr solr-create -c coracore
 
 #start on external with:
-#docker run --network=cora -p 8280:8080 --name solr --link solr:solr -d  solr -P solr solr-create -c coracore
+#docker run --net=cora  --name solr  -d  solr -P solr solr-create -c coracore
 
 #reomove unused volumes with:
 #docker volume rm $(docker volume ls -q)
