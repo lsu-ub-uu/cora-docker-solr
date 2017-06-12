@@ -18,20 +18,18 @@
 		<version>0.5-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>cora-docker-therest</artifactId>
+	<artifactId>cora-docker-solr</artifactId>
 	<packaging>pom</packaging>
-	<version>0.3-SNAPSHOT</version>
-	<name>The Rest docker</name>
+	<version>0.1-SNAPSHOT</version>
+	<name>Solr docker for cora</name>
 
 	<properties>
-		<systemone.version>0.13-SNAPSHOT</systemone.version>
-		<therest.version>0.15-SNAPSHOT</therest.version>
 	</properties>
 
 	<scm>
-		<connection>scm:git:https://git.epc.ub.uu.se/epc/cora-docker-therest.git</connection>
-		<developerConnection>scm:git:https://git.epc.ub.uu.se/epc/cora-docker-therest.git</developerConnection>
-		<url>https://git.epc.ub.uu.se/epc/cora-docker-therest.git</url>
+		<connection>scm:git:https://git.epc.ub.uu.se/epc/cora-docker-solr.git</connection>
+		<developerConnection>scm:git:https://git.epc.ub.uu.se/epc/cora-docker-solr.git</developerConnection>
+		<url>https://git.epc.ub.uu.se/epc/cora-docker-solr.git</url>
 	</scm>
 
 	<repositories>
@@ -61,46 +59,33 @@
 	</repositories>
 
 	<dependencies>
-		<dependency>
-			<groupId>se.uu.ub.cora</groupId>
-			<artifactId>systemone</artifactId>
-			<version>${systemone.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>se.uu.ub.cora</groupId>
-			<artifactId>therest</artifactId>
-			<version>${therest.version}</version>
-			<type>war</type>
-			<scope>compile</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.0</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/docker</outputDirectory>
-							<excludeArtifactIds>basicstorage</excludeArtifactIds>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-							<excludeTransitive>true</excludeTransitive>
-							<stripVersion>true</stripVersion>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
+<!-- 				<version>3.0.0</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>copy-dependencies</id> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>copy-dependencies</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<outputDirectory>${project.build.directory}/docker</outputDirectory> -->
+<!-- 							<excludeArtifactIds>basicstorage</excludeArtifactIds> -->
+<!-- 							<overWriteReleases>true</overWriteReleases> -->
+<!-- 							<overWriteSnapshots>true</overWriteSnapshots> -->
+<!-- 							<overWriteIfNewer>true</overWriteIfNewer> -->
+<!-- 							<excludeTransitive>true</excludeTransitive> -->
+<!-- 							<stripVersion>true</stripVersion> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
@@ -115,7 +100,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<imageName>therest</imageName>
+					<imageName>solr</imageName>
 					<dockerDirectory>docker</dockerDirectory>
 					<resources>
 					</resources>

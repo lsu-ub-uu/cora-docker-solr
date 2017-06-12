@@ -1,8 +1,0 @@
-<Context>
-	<Parameter name="dependencyProviderClassName"
-		value="se.uu.ub.cora.systemone.SystemOneDependencyProvider" override="false" />
-	<Parameter name="gatekeeperURL" value="http://gatekeeper:8080/gatekeeper/"
-		override="false" />
-	<Parameter name="storageOnDiskBasePath" value="/mnt/data/basicstorage/"
-		override="false" />
-</Context>
