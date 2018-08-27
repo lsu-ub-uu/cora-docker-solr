@@ -15,6 +15,7 @@ ADD coradefaultcore /opt/solr/server/solr/configsets/coradefaultcore
 #    }
 #}' http://localhost:8983/solr/coracore/schema
 
+#changed *_t to be multivalued
 
 #build with:
 #maven build
