@@ -8,7 +8,8 @@
 	Public License for more details. ~ ~ You should have received a copy of the 
 	GNU General Public License ~ along with Cora. If not, see <http://www.gnu.org/licenses/>. -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -20,10 +21,11 @@
 
 	<artifactId>cora-docker-solr</artifactId>
 	<packaging>pom</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 	<name>Solr docker for cora</name>
 
 	<properties>
+		<!-- <outputDirectory>${project.build.directory}/docker</outputDirectory> -->
 	</properties>
 
 	<scm>
@@ -52,48 +54,29 @@
 
 	<build>
 		<plugins>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
-<!-- 				<version>3.0.0</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>copy-dependencies</id> -->
-<!-- 						<phase>package</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>copy-dependencies</goal> -->
-<!-- 						</goals> -->
-<!-- 						<configuration> -->
-<!-- 							<outputDirectory>${project.build.directory}/docker</outputDirectory> -->
-<!-- 							<excludeArtifactIds>basicstorage</excludeArtifactIds> -->
-<!-- 							<overWriteReleases>true</overWriteReleases> -->
-<!-- 							<overWriteSnapshots>true</overWriteSnapshots> -->
-<!-- 							<overWriteIfNewer>true</overWriteIfNewer> -->
-<!-- 							<excludeTransitive>true</excludeTransitive> -->
-<!-- 							<stripVersion>true</stripVersion> -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
 			<plugin>
 				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.13</version>
+				<artifactId>dockerfile-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>build-image</id>
-						<phase>package</phase>
+						<id>default</id>
 						<goals>
 							<goal>build</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<imageName>solr</imageName>
-					<dockerDirectory>docker</dockerDirectory>
-					<resources>
-					</resources>
+					<!-- <contextDirectory>${outputDirectory}</contextDirectory> -->
+					<repository>cora-solr</repository>
+					<tag>${project.version}</tag>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>javax.activation</groupId>
+						<artifactId>activation</artifactId>
+						<version>1.1.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
