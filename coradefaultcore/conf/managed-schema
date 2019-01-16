@@ -351,6 +351,14 @@
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
   </fieldType>
+  <fieldType name="text_ko" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.KoreanTokenizerFactory" outputUnknownUnigrams="false" decompoundMode="discard"/>
+      <filter class="solr.KoreanPartOfSpeechStopFilterFactory"/>
+      <filter class="solr.KoreanReadingFormFilterFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
   <fieldType name="text_lv" class="solr.TextField" positionIncrementGap="100">
     <analyzer>
       <tokenizer class="solr.StandardTokenizerFactory"/>
@@ -465,6 +473,7 @@
   <dynamicField name="*_txt_id" type="text_id" indexed="true" stored="true"/>
   <dynamicField name="*_txt_it" type="text_it" indexed="true" stored="true"/>
   <dynamicField name="*_txt_ja" type="text_ja" indexed="true" stored="true"/>
+  <dynamicField name="*_txt_ko" type="text_ko" indexed="true" stored="true"/>
   <dynamicField name="*_txt_lv" type="text_lv" indexed="true" stored="true"/>
   <dynamicField name="*_txt_nl" type="text_nl" indexed="true" stored="true"/>
   <dynamicField name="*_txt_no" type="text_no" indexed="true" stored="true"/>
@@ -478,7 +487,7 @@
   <dynamicField name="*_srpt" type="location_rpt" indexed="true" stored="true"/>
   <dynamicField name="attr_*" type="text_general" multiValued="true" indexed="true" stored="true"/>
   <dynamicField name="*_txt" type="text_general" indexed="true" stored="true"/>
-  <dynamicField name="*_str" type="strings" docValues="true" indexed="false" stored="false"/>
+  <dynamicField name="*_str" type="strings" docValues="true" indexed="false" stored="false" useDocValuesAsStored="false"/>
   <dynamicField name="*_dts" type="pdate" multiValued="true" indexed="true" stored="true"/>
   <dynamicField name="*_dpf" type="delimited_payloads_float" indexed="true" stored="true"/>
   <dynamicField name="*_dpi" type="delimited_payloads_int" indexed="true" stored="true"/>
