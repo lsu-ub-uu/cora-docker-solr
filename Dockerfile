@@ -3,7 +3,8 @@ FROM  solr:8.2-slim
 ADD coradefaultcore /opt/solr/server/solr/configsets/coradefaultcore 
 RUN ls -la /opt/solr/server/solr/configsets/coradefaultcore
 USER root
-RUN chmod +rx /opt/solr/server/solr/configsets/coradefaultcore
+RUN chmod +rx /opt/solr/server/solr/configsets/coradefaultcore -R
+USER solr
 #ideas from: https://github.com/docker-solr/docker-solr-examples/tree/master/schema-api
 
 #created by:
