@@ -1,4 +1,4 @@
-FROM  solr:7.6-alpine
+FROM  solr:8.2-slim
 ADD coradefaultcore /opt/solr/server/solr/configsets/coradefaultcore 
 
 #ideas from: https://github.com/docker-solr/docker-solr-examples/tree/master/schema-api
