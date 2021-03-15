@@ -24,10 +24,6 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>Solr docker for cora</name>
 
-	<properties>
-		<!-- <outputDirectory>${project.build.directory}/docker</outputDirectory> -->
-	</properties>
-
 	<scm>
 		<connection>scm:git:https://github.com/lsu-ub-uu/cora-docker-solr.git</connection>
 		<developerConnection>scm:git:https://github.com/lsu-ub-uu/cora-docker-solr.git</developerConnection>
@@ -48,7 +44,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- <contextDirectory>${outputDirectory}</contextDirectory> -->
 					<repository>cora-solr</repository>
 					<tag>${project.version}</tag>
 				</configuration>
