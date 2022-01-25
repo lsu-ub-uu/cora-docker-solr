@@ -27,6 +27,8 @@ USER solr
 #
 #changed *_t to be multivalued in managed-schema.xml 
 #<dynamicField name="*_t" type="text_general" multiValued="true" indexed="true" stored="true"/>
+#changed *_s to be multivalued in managed-schema.xml 
+#<dynamicField name="*_s" type="string" multiValued="true" indexed="true" stored="true"/>
 #remove file core.properties 
 #end created by:
 #
