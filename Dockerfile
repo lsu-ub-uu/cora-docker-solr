@@ -1,4 +1,4 @@
-FROM  solr:9-slim
+FROM  solr:9.7-slim
 
 ADD coradefaultcore /opt/solr/server/solr/configsets/coradefaultcore 
 RUN ls -la /opt/solr/server/solr/configsets/coradefaultcore
