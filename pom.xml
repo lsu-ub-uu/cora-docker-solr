@@ -19,14 +19,14 @@
 
 	<artifactId>cora-docker-solr</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Solr docker for cora</name>
 
 	<scm>
 		<connection>scm:git:https://github.com/lsu-ub-uu/cora-docker-solr.git</connection>
 		<developerConnection>scm:git:https://github.com/lsu-ub-uu/cora-docker-solr.git</developerConnection>
 		<url>https://github.com/lsu-ub-uu/cora-docker-solr.git</url>
-	  <tag>release/1.0</tag>
+	  <tag>cora-docker-solr-1.0.0</tag>
   </scm>
 
 </project>
