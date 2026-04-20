@@ -5,7 +5,7 @@
 ##created by:
 docker run --rm -d --name solr-initial -p 8983:8983 solr:8.11-slim solr-precreate coradefaultcore
 
-###added field to scheama:
+###added field to schema:
 curl -X POST -H 'Content-type:application/json' --data-binary '{
   "add-field":{
     "name":"ids",
@@ -25,6 +25,12 @@ changed *_t to be multivalued in managed-schema.xml
 changed *_s to be multivalued in managed-schema.xml 
 <dynamicField name="*_s" type="string" multiValued="true" indexed="true" stored="true"/>
 remove file core.properties 
+
+added the following to requestHandler / defaults
+<str name="defType">edismax</str>
+<str name="q.op">AND</str>
+<str name="mm">100%</str>
+      
 
 ##build with:
 maven build
